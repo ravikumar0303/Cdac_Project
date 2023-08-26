@@ -46,20 +46,21 @@ public class ProductController {
 
 	@Autowired
 	private ICategoryService catService;
-
+ 
 	@PostMapping("/add-product")
 	public ResponseEntity<?> addNewProduct(@RequestParam String productDto,
-			@RequestParam(required = false) MultipartFile image) {
-		System.out.println("data " + productDto + " " + image.getOriginalFilename() + " " + location);
+			 //multipartFile its a class to handel the multifile
+			@RequestParam MultipartFile image) {
+		System.out.println("data " + productDto + " " + image.getOriginalFilename() + " " + location.trim());
 		String message = "";
 		try {
 			ProductDto productDetails = new ObjectMapper().readValue(productDto, ProductDto.class);
 
 			if (image != null) {
-				image.transferTo(new File(location, image.getOriginalFilename()));
+				//image.transferTo(new File(location.trim(), image.getOriginalFilename()));
 				productDetails.getProduct().setImageName(image.getOriginalFilename());
 			}
-			// System.out.println("Product Details: "+productDetails);
+			 System.out.println("Product Details: "+productDetails);
 			message = prodService.addProduct(productDetails);
 		} catch (Exception e) {
 			message = "error";

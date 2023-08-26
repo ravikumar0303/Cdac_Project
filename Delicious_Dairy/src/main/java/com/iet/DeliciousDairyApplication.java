@@ -12,12 +12,14 @@ public class DeliciousDairyApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeliciousDairyApplication.class, args);
 		
-		System.out.println("\t \t Hello Ravi \n \t \t \tWelcome To CDAC IET Acts");
+		System.out.println("\n \t \t Hello Welcome To CDAC IET Acts \n \t \t \t  Developed By Team Delicious_Dairy....");
 	}
 	
 	@Bean
 	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+
 
 }

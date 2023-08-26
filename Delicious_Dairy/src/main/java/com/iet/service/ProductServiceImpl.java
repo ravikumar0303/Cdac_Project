@@ -85,9 +85,9 @@ public class ProductServiceImpl implements IProductService {
 	@Override
 	public List<ProductDto> getStockReportByCategory(String category) {
 		Category currentCat = catRepo.findByName(category).get();
-
+System.out.println(currentCat);
 		List<Product> products = prodRepo.getProductsByCategory(currentCat.getId());
-
+System.out.println(products);
 		List<ProductDto> product_details = new ArrayList<>();
 
 		products.forEach(product -> {

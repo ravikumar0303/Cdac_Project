@@ -35,6 +35,7 @@ public class CartController {
 		Integer productId = map.get("productId");
 		Integer quantity = map.get("quantity");
 		System.out.println("ProductId: "+productId+" quantity: "+quantity);
+		System.out.println(map);
 		Integer userId = Integer.parseInt(SecurityContextHolder.getContext().getAuthentication().getName());
 		return new ResponseEntity<>(new ResponseDto<>("success", cartService.addItemToCart(productId,quantity,userId)),HttpStatus.CREATED);
 	}
