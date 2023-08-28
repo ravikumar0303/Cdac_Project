@@ -22,7 +22,6 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User registerOrEditUser(User user) {
-		System.out.println("hii"+user);
 		// persist the transient user pojo which consists of details of user
 		return userRepo.save(user);
 	}

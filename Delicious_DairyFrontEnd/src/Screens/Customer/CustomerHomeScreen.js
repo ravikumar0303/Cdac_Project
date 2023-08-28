@@ -90,7 +90,7 @@ const CustomerHomeScreen = (props) => {
         {
           userSignIn.response &&
           <div>
-            <Header title={"Welcome " + userSignIn.response.data.firstName} />
+            <Header title={"Welcome back " + userSignIn.response.data.firstName} />
             <div className="row">
               {
                 categoryList.length > 0 && categoryList.map(detail => {

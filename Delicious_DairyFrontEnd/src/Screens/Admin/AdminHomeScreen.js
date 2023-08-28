@@ -8,7 +8,7 @@ const AdminHomeScreen = (props) => {
     <div className="Screen">
       {!userSignIn.response && <Header title="You are not logged in" />}
       {userSignIn.response && (
-        <Header title={"Welcome " + userSignIn.response.data.firstName} />
+        <Header title={"Welcome back " + userSignIn.response.data.firstName} />
 
       )}
       <img

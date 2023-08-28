@@ -7,6 +7,7 @@ import Header from '../../Components/Header'
 import { PRODUCT_EDIT } from '../../Constants/productConstants'
 import { URL_PATH } from '../../Constants/Url'
 import AddProduct from "../../Images/AddProduct.jpg"
+//import Image from "../../../public/Images/"
 //import image1 from '../../Images/AddProduct2.jpg'
 
 const ViewProductsScreen = (props) => {

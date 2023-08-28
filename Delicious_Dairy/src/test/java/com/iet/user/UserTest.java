@@ -41,7 +41,7 @@ class UserTest {
 						Role.ADMIN),
 				new User("Rushikesh", "pachore", "rushikeshpachore2@gmail.com", encoder.encode("Rushikesh123"), "7607890633",
 						Role.ADMIN),
-				new User("shubham", "mahajan", "shubham@gmail.com", encoder.encode("Shubham123"), "76078906321",
+				new User("shubham", "mahajan", "shubham@gmail.com", encoder.encode("Shubham123"), "7607890631",
 						Role.ADMIN));
 		userRepo.saveAll(list);
 	}

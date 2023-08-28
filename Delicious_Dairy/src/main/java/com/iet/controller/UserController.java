@@ -51,7 +51,7 @@ public class UserController {
 	public ResponseEntity<?> registerUser(@RequestBody User user) {
 		System.out.println("in create new User" + user);
 		user.setPassword(encoder.encode(user.getPassword()));
-		return new ResponseEntity<>(new ResponseDto<User>("Register successfully", userService.registerOrEditUser(user)),
+		return new ResponseEntity<>(new ResponseDto<User>("success", userService.registerOrEditUser(user)),
 				HttpStatus.CREATED);
 	}
 
@@ -68,37 +68,37 @@ public class UserController {
 		}
 		User user = userService.findByEmail(request.getEmail());
 		System.out.println(jwtUtil.generateToken(user.getId()));
-		return new ResponseEntity<>(new LoginResponse("Login successfully !!", user, jwtUtil.generateToken(user.getId())),
+		return new ResponseEntity<>(new LoginResponse("success", user, jwtUtil.generateToken(user.getId())),
 				HttpStatus.OK);
 	}
 
 	@PutMapping("/edit/{uid}")
 	public ResponseEntity<?> editUser(@RequestBody User user, @PathVariable int uid) {
 		user.setId(uid);
-		return new ResponseEntity<>(new ResponseDto<User>("User Updated successfully !!", userService.registerOrEditUser(user)),
+		return new ResponseEntity<>(new ResponseDto<User>("success", userService.registerOrEditUser(user)),
 				HttpStatus.ACCEPTED);
 	}
 
 	@GetMapping("/customers")
 	public ResponseEntity<?> getAllCustomers() {
-		return new ResponseEntity<>(new ResponseDto<List<User>>(" success\n All Customers !!", userService.getUsersByRole("CUSTOMER")),
+		return new ResponseEntity<>(new ResponseDto<List<User>>("success", userService.getUsersByRole("CUSTOMER")),
 				HttpStatus.OK);
 	}
 
 	@GetMapping("/employees")
 	public ResponseEntity<?> getAllEmployees() {
-		return new ResponseEntity<>(new ResponseDto<List<User>>("success\n All Employees  !!", userService.getUsersByRole("EMPLOYEE")),
+		return new ResponseEntity<>(new ResponseDto<List<User>>("success", userService.getUsersByRole("EMPLOYEE")),
 				HttpStatus.OK);
 	}
 
 	@GetMapping("/delivery_persons")
 	public ResponseEntity<?> getAllDeliverers() {
 		return new ResponseEntity<>(
-				new ResponseDto<List<User>>(" success\n All Delivery_persion  !!", userService.getUsersByRole("DELIVERY_PERSON")), HttpStatus.OK);
+				new ResponseDto<List<User>>("success", userService.getUsersByRole("DELIVERY_PERSON")), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{uid}")
 	public ResponseEntity<?> deleteUserById(@PathVariable Integer uid) {
-		return new ResponseEntity<>(new ResponseDto<String>("deleted successfully !!", userService.deleteUserById(uid)), HttpStatus.OK);
+		return new ResponseEntity<>(new ResponseDto<String>("success", userService.deleteUserById(uid)), HttpStatus.OK);
 	}
 }

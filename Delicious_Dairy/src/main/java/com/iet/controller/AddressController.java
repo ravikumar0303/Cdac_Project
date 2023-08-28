@@ -34,7 +34,6 @@ public class AddressController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<?> getAllAddresses(){
-		 System.out.println("hello delicious_dairy");
 		Integer userId =Integer.parseInt(SecurityContextHolder.getContext().getAuthentication().getName());
 		return new ResponseEntity<>(new ResponseDto<List<Address>>("success", addrService.getAllAddressesByUserId(userId)), HttpStatus.OK);
 	}
@@ -48,7 +47,6 @@ public class AddressController {
 	
 	@PutMapping("/edit/{addrId}")
 	public ResponseEntity<?> editAddressById(@RequestBody Address addr,@PathVariable Integer addrId){
-		//System.out.println();
 		Integer userId =Integer.parseInt(SecurityContextHolder.getContext().getAuthentication().getName());
 		addr.setSelectedUser(userService.findById(userId));
 		addr.setId(addrId);

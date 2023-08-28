@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../../Actions/userActions";
 import Header from "../../Components/Header";
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 
 const SignInScreen = (props) => {
   const [email, setEmail] = useState("");
@@ -30,8 +30,8 @@ const SignInScreen = (props) => {
         props.history.push("/delivery-home");
       }
     }
-    else if(error){
-      toast.error('Invalid Login Credentials. Try again!!',{autoClose:2000,position:toast.POSITION.TOP_RIGHT})
+    else if (error) {
+      toast.error('Invalid Login Credentials. Try again!!', { autoClose: 2000, position: toast.POSITION.TOP_RIGHT })
     }
   }, [loading, response, error]);
 
@@ -47,6 +47,8 @@ const SignInScreen = (props) => {
           type="email"
           className="form-control"
           placeholder="name@example.com"
+          required
+
         />
       </div>
 
@@ -59,12 +61,13 @@ const SignInScreen = (props) => {
           type="password"
           className="form-control"
           placeholder="password"
+          required
         />
       </div>
 
       <div className="float-end">
-          <br/>
-          New around here? <Link to="/signup">Sign Up</Link>
+        <br />
+        New around here? <Link to="/signup">Sign Up</Link>
       </div>
 
       <div className="mb-3">

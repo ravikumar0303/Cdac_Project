@@ -8,12 +8,12 @@ const DeliveryHomeScreen = (props) => {
     <div className="Screen">
       {!userSignIn.response && <Header title="You are not logged in" />}
       {userSignIn.response && (
-        <Header title={"Welcome " + userSignIn.response.data.firstName} />
+        <Header title={"Welcome back " + userSignIn.response.data.firstName} />
       )}
       <img
         src={home8}
         height="500px"
-        width="1250px"
+        width="1080px"
       />
     </div>
   );
